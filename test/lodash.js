@@ -44,7 +44,7 @@ describe('#takeRight(array, n)', function() {
     assert.deepEqual(_.takeRight(['saturday', 'sunday']), ['sunday']);
   });
 
-  it('should return n elements from the beginning of an array', function() {
+  it('should return n elements from the end of an array', function() {
     assert.deepEqual(_.takeRight(['one', 'two'], 1), ['two']);
     assert.deepEqual(_.takeRight(['mon', 'wed', 'fri'], 2), ['wed', 'fri']);
   });
@@ -121,7 +121,7 @@ xdescribe('#shuffle(array)', function() {
   it('should return a new array with elements shuffled', function() {
     assert.equal(_.shuffle([1, 2, 3]).length, 3);
   });
-  
+
 });
 
 // /**************************************
@@ -147,12 +147,12 @@ describe('#size(collection)', function() {
 });
 
 describe('#forEach(collection, callback)', function() {
-  
+
   it('should iterate on each character of a string', function() {
     var iterated = '';
-    
-    _.forEach('pizza', function(val, i, string) {  
-      iterated += val;    
+
+    _.forEach('pizza', function(val, i, string) {
+      iterated += val;
     });
 
     assert.deepEqual(iterated, 'pizza');
@@ -160,9 +160,9 @@ describe('#forEach(collection, callback)', function() {
 
   it('should iterate on each element of an array', function() {
     var iterated = [];
-    
-    _.forEach([1,2,3,4], function(val, i, array) {  
-      iterated.push(val);    
+
+    _.forEach([1,2,3,4], function(val, i, array) {
+      iterated.push(val);
     });
 
     assert.deepEqual(iterated, [1,2,3,4]);
@@ -171,8 +171,8 @@ describe('#forEach(collection, callback)', function() {
   it('should iterate on each element of an object', function() {
     var iterated = [];
 
-    _.forEach({a: 1, b: 2, c: 3}, function(val, key, obj) { 
-      iterated.push(val); 
+    _.forEach({a: 1, b: 2, c: 3}, function(val, key, obj) {
+      iterated.push(val);
     });
 
     assert.deepEqual(iterated, [1, 2, 3]);
@@ -181,26 +181,26 @@ describe('#forEach(collection, callback)', function() {
 });
 
 describe('#map(collection, callback)', function() {
-  
+
   it('should iterate on each character of a string', function() {
-    var mapped = _.map('pizza', function(val, i, string) {  
-      return val;    
+    var mapped = _.map('pizza', function(val, i, string) {
+      return val;
     });
 
     assert.deepEqual(mapped, ['p', 'i', 'z', 'z', 'a']);
   });
 
   it('should iterate on each element of an array', function() {
-    var mapped = _.map([1,2,3,4], function(val, i, array) {  
-      return val * val;    
+    var mapped = _.map([1,2,3,4], function(val, i, array) {
+      return val * val;
     });
 
     assert.deepEqual(mapped, [1, 4, 9, 16]);
   });
 
   it('should iterate on each element of an object', function() {
-    var mapped = _.map({a: 1, b: 2, c: 3}, function(val, key, obj) { 
-      return val * val; 
+    var mapped = _.map({a: 1, b: 2, c: 3}, function(val, key, obj) {
+      return val * val;
     });
 
     assert.deepEqual(mapped, [1, 4, 9]);
@@ -209,10 +209,10 @@ describe('#map(collection, callback)', function() {
 });
 
 describe('#filter(collection, callback)', function() {
-  
+
   it('should iterate on each character of a string', function() {
     var filteredArray = _.filter('pizza', function(val, i, array) {
-      return val === 'z';    
+      return val === 'z';
     });
 
     assert.deepEqual(filteredArray, ['z', 'z']);
@@ -220,7 +220,7 @@ describe('#filter(collection, callback)', function() {
 
   it('should iterate on each element of an array', function() {
     var filteredArray = _.filter([1,2,3,4], function(val, i, array) {
-      return (val % 2) === 0;    
+      return (val % 2) === 0;
     });
 
     assert.deepEqual(filteredArray, [2, 4]);
